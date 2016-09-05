@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility-crypto",
-    "version": "0.1.1",
+    "version": "0.3.0",
     "description": "Karmia utility crypto module",
     "homepage": "https://github.com/fujimakishouten/karmia-utility-crypto",
     "license": "MIT",
@@ -16,7 +16,7 @@
     "dependencies": {
         "lodash": ">=4.11.1",
         "js-sha512": ">=0.2.2",
-        "karmia-utility-random": ">=0.1.0"
+        "karmia-utility-random": ">=0.3.0"
     },
     "devDependencies": {
         "mocha": ">=2.4.5",
