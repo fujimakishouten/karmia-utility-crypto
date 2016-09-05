@@ -1,7 +1,8 @@
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
-/*jslint node: true, nomen: true */
-/*global describe, it */
+/* eslint-env es6, mocha, node */
+/* eslint-extends: eslint:recommended */
 'use strict';
+
 
 
 // Variables
