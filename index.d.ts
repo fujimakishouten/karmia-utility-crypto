@@ -22,5 +22,4 @@ declare class KarmiaUtilityCrypto {
     decryptiv(algorythm: string, password: Buffer|string, iv: Buffer|string, data: Buffer|string, encoding?: string, tag_encoding?: string): Buffer;
 }
 
-declare function karmia_utility_crypto(options: object): KarmiaUtilityCrypto;
-export = karmia_utility_crypto;
+export = KarmiaUtilityCrypto;

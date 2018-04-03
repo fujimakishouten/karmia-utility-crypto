@@ -9,7 +9,7 @@
 const crypto = require('crypto'),
     expect = require('expect.js'),
     karamia_utility_random = require('../lib'),
-    kcrypto = karamia_utility_random();
+    kcrypto = new karamia_utility_random();
 
 
 // Test
