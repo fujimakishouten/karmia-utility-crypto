@@ -1,23 +1,26 @@
-declare module KarmiaUtility {
-    export class KarmiaUtilityCrypto {
-        options: Object;
-        prefix: Buffer;
-        counter: Buffer;
+import "@types/node";
 
-        constructor(options: Object);
-        hash(algorithm: string, buffer: Buffer|string, encoding: null|string|undefined): Buffer;
-        sha1(buffer: Buffer|string, encoding: null|string|undefined): Buffer;
-        sha256(buffer: Buffer|string, encoding: null|string|undefined): Buffer;
-        sha512(buffer: Buffer|string, encoding: null|string|undefined): Buffer;
-        stretching(algorithm: string, buffer: Buffer|string, count: null|number|undefined, encoding: null|string|undefined): Buffer;
-        hmac(algorithm: string, password: Buffer|string, buffer: Buffer|string, encoding: null|string|undefined): Buffer;
-        hmac_sha1(secret: Buffer|string, buffer: Buffer|string, encoding: null|string|undefined): Buffer;
-        hmac_sha256(secret: Buffer|string, buffer: Buffer|string, encoding: null|string|undefined): Buffer;
-        hmac_sha512(secret: Buffer|string, buffer: Buffer|string, encoding: null|string|undefined): Buffer;
-        encrypt(algorithm: string, password: Buffer|string, data: Buffer|string, encoding: null|string|undefined): Object;
-        decrypt(algorithm: string, password: Buffer|string, buffer: Buffer|Object, encoding: null|string|undefined): Buffer;
-        iv(): Buffer;
-        encrypt(algorithm: string, password: Buffer|string, iv: Buffer|string, data: Buffer|string, encoding: null|string|undefined): Object;
-        decrypt(algorithm: string, password: Buffer|string, iv: Buffer|string, sbuffer: Buffer|Object, encoding: null|string|undefined): Buffer;
-    }
+declare class KarmiaUtilityCrypto {
+    options: object;
+    prefix: Buffer;
+    counter: Buffer;
+
+    constructor(options?: object);
+    hash(algorithm: string, buffer: Buffer|string, encoding?: string): Buffer;
+    sha1(buffer: Buffer|string, encoding?: string): Buffer;
+    sha256(buffer: Buffer|string, encoding?: string): Buffer;
+    sha512(buffer: Buffer|string, encoding?: string): Buffer;
+    stretching(algorithm: string, buffer: Buffer|string, count?: number, encoding?: string): Buffer;
+    hmac(algorithm: string, password: Buffer|string, buffer: Buffer|string, encoding?: string): Buffer;
+    hmac_sha1(secret: Buffer|string, buffer: Buffer|string, encoding?: string): Buffer;
+    hmac_sha256(secret: Buffer|string, buffer: Buffer|string, encoding?: string): Buffer;
+    hmac_sha512(secret: Buffer|string, buffer: Buffer|string, encoding?: string): Buffer;
+    encrypt(algorythm: string, password: Buffer|string, data: Buffer|string, encoding?: string): object;
+    decrypt(algorythm: string, password: Buffer|string, buffer: Buffer|object|string, encoding?: string): Buffer;
+    iv(): Buffer;
+    encryptiv(algorythm: string, password: Buffer|string, iv: Buffer|string, buffer: Buffer|string, encoding?: string): object;
+    decryptiv(algorythm: string, password: Buffer|string, iv: Buffer|string, data: Buffer|string, encoding?: string, tag_encoding?: string): Buffer;
 }
+
+declare function karmia_utility_crypto(options: object): KarmiaUtilityCrypto;
+export = karmia_utility_crypto;
