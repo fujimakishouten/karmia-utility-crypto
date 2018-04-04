@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility-crypto",
-    "version": "0.4.0",
+    "version": "0.4.2",
     "description": "Karmia utility crypto module",
     "homepage": "https://github.com/fujimakishouten/karmia-utility-crypto",
     "license": "MIT",
@@ -11,16 +11,23 @@
         "url": "https://github.com/fujimakishouten/karmia-utility-crypto.git"
     },
     "scripts": {
+        "cobertura": "./node_modules/.bin/istanbul cover --report cobertura ./node_modules/mocha/bin/_mocha ./test",
+        "coverage": "./node_modules/.bin/istanbul cover --report html ./node_modules/mocha/bin/_mocha ./test",
         "test": "./node_modules/.bin/mocha ./test"
     },
     "dependencies": {
-        "js-sha512": ">=0.2.2",
-        "karmia-utility-random": ">=0.3.0"
+        "js-sha512": "^0.7.1",
+        "karmia-utility-random": "^0.4.1"
     },
     "devDependencies": {
-        "@types/node": ">=9.6.1",
-        "mocha": ">=2.4.5",
-        "expect.js": ">=0.3.1"
+        "@types/node": "^9.6.2",
+        "eslint": "^4.19.1",
+        "expect.js": "^0.3.1",
+        "istanbul": "^1.1.0-alpha.1",
+        "mocha": "^5.0.5",
+        "tslint": "^5.9.1",
+        "tslint-eslint-rules": "^5.1.0",
+        "typescript": "^2.8.1"
     },
     "engines": {
         "node": ">=4.5.0"
