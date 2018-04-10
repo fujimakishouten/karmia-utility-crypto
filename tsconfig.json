@@ -13,8 +13,6 @@
         "sourceMap": false,
         "target": "esnext"
     },
-    "exclude": ["node_modules"],
-    "include": ["./test/**/*"]
-
+    "include": ["**/*"]
 }
 
