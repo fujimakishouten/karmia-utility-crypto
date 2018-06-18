@@ -5,14 +5,10 @@
 
 
 
-// Declaration
-declare function require(id: string): any;
-
-
 // Import modules
 import KarmiaUtilityCrypto from "../";
 import crypto = require("crypto");
-const expect = require("expect.js");
+import expect = require("expect.js");
 
 
 // Variables
