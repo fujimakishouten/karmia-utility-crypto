@@ -6,15 +6,16 @@
 
 
 // Import modules
-import KarmiaUtilityRandom = require("karmia-utility-random");
+import KarmiaUtilityRandom from "karmia-utility-random";
 import crypto = require("crypto");
-const sha512 = require("js-sha512");
+import SHA512 = require("js-sha512");
 
 
 // Variables
 const random = new KarmiaUtilityRandom();
 
 
+// Declaration
 declare interface IV {
     prefix?: Buffer;
     start?: number;
@@ -81,7 +82,7 @@ class KarmiaUtilityCrypto {
         buffer = Buffer.isBuffer(buffer) ? buffer : Buffer.from(buffer, encoding);
 
         if (match) {
-            const hash_function = (256 === Number(match[1])) ? sha512.sha512_256 : sha512.sha512_224;
+            const hash_function = (256 === Number(match[1])) ? SHA512.sha512_256 : SHA512.sha512_224;
             return Buffer.from(hash_function(buffer.toString(encoding)), 'hex');
         }
 
@@ -326,7 +327,7 @@ class KarmiaUtilityCrypto {
 
 
 // Export module
-export = KarmiaUtilityCrypto;
+export default KarmiaUtilityCrypto;
 
 
 /*

@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility-crypto",
-    "version": "0.5.4",
+    "version": "0.6.0",
     "description": "Karmia crypto utility module.",
     "homepage": "https://github.com/fujimakishouten/karmia-utility-crypto",
     "license": "MIT",
@@ -11,20 +11,23 @@
         "url": "https://github.com/fujimakishouten/karmia-utility-crypto.git"
     },
     "scripts": {
-        "build": "tsc",
-        "cobertura": "istanbul cover --report cobertura ./node_modules/mocha/bin/_mocha ./test",
-        "coverage": "istanbul cover --report html ./node_modules/mocha/bin/_mocha ./test",
+        "build": "tsc --lib es6 ./index.ts",
+        "build:dev": "tsc",
+        "cobertura": "npm run build:dev && istanbul cover --report cobertura _mocha ./test",
+        "coverage": "npm run build:dev && istanbul cover --report html _mocha ./test",
         "postinstall": "npm run build",
-        "test": "mocha ./test"
+        "test": "npm run build:dev && _mocha ./test"
     },
     "dependencies": {
-        "@types/mocha": "^5.0.0",
-        "@types/node": "^9.6.2",
         "js-sha512": "^0.7.1",
-        "karmia-utility-random": "^0.5.10",
+        "karmia-utility-random": "^0.6.0",
         "typescript": "^2.8.1"
     },
     "devDependencies": {
+        "@types/expect.js": "^0.3.29",
+        "@types/js-sha512": "^0.7.0",
+        "@types/mocha": "^5.0.0",
+        "@types/node": "^9.6.2",
         "expect.js": "^0.3.1",
         "istanbul": "^1.1.0-alpha.1",
         "mocha": "^5.0.5",

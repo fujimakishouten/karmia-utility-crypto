@@ -5,9 +5,13 @@
 
 
 
+// Declaration
+declare function require(id: string): any;
+
+
 // Import modules
+import KarmiaUtilityCrypto from "../";
 import crypto = require("crypto");
-import KarmiaUtilityCrypto = require("../");
 const expect = require("expect.js");
 
 
@@ -26,7 +30,7 @@ describe('karmia-utility-crypto', function () {
         });
 
         it('Should get SHA512/256 hash', function () {
-            const result = kcrypto.hash('sha512/256', 'Hello, world.');
+            const result = kcrypto.hash('SHA512/256', 'Hello, world.');
 
             expect(result).to.be.an(Buffer);
             expect(result.toString('hex')).to.have.length(64);
@@ -51,7 +55,7 @@ describe('karmia-utility-crypto', function () {
         });
     });
 
-    describe('sha512', function () {
+    describe('SHA512', function () {
         it('Should get SHA512 hash', function () {
             const result = kcrypto.sha512('Hello, world.');
 
@@ -64,7 +68,7 @@ describe('karmia-utility-crypto', function () {
         it('Should stretching hash function', function () {
             const data = 'Hello, world.',
                 sha512 = kcrypto.sha512(data),
-                result = kcrypto.stretching('sha512', data, 10);
+                result = kcrypto.stretching('SHA512', data, 10);
 
             expect(result).to.not.be(sha512);
         });
@@ -97,7 +101,7 @@ describe('karmia-utility-crypto', function () {
         });
     });
 
-    describe('hmac-sha512', function () {
+    describe('hmac-SHA512', function () {
         it('Should get SHA512 HMAC digest', function () {
             const result = kcrypto.hmac_sha512('secret', 'Hello, world.');
 

@@ -3,7 +3,7 @@ Karmia utility crypto module
 
 ## Usage
 ```JavaScript
-const karmia_utility_crypto = require('karmia-utility-crypto'),
+const karmia_utility_crypto = require('karmia-utility-crypto').default,
     kcrypto = new karmia_utility_crypto();
 ```
 
