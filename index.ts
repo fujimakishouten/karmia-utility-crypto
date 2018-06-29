@@ -287,12 +287,12 @@ class KarmiaUtilityCrypto {
             mode = algorythm.toLowerCase().substring(algorythm.length - 3),
             secret = Buffer.isBuffer(password) ? password : Buffer.from(password, 'binary'),
             vector = Buffer.isBuffer(iv) ? iv : Buffer.from(iv, 'binary'),
-            cipher = crypto.createCipheriv(algorythm, secret, vector),
+            cipher = crypto.createCipheriv(algorythm, secret, vector) as any,
             data = Buffer.isBuffer(buffer) ? buffer : Buffer.from(buffer, encoding),
             encrypted = cipher.update(data, encoding, 'binary') + cipher.final('binary');
         result.data = Buffer.from(encrypted, 'binary');
         if ('gcm' === mode) {
-            result.tag = cipher.getAuthTag();
+            result.tag = cipher.getAuthTag() as Buffer;
             result.tag = (encoding) ? result.tag.toString(encoding) : result.tag;
         }
 
@@ -314,7 +314,7 @@ class KarmiaUtilityCrypto {
     static decryptiv(algorythm: string, password: Buffer|string, iv: Buffer|string, data: EncryptedData, encoding?: string, tag_encoding?: string): Buffer {
         const mode = algorythm.toLowerCase().substring(algorythm.length -3),
             secret = Buffer.isBuffer(password) ? password : Buffer.from(password, 'binary'),
-            decipher = crypto.createDecipheriv(algorythm, secret, iv),
+            decipher = crypto.createDecipheriv(algorythm, secret, iv) as any,
             encrypted = ('data' in data) ? data.data : data,
             buffer = Buffer.isBuffer(encrypted) ? encrypted : Buffer.from(encrypted, encoding);
         if ('gcm' === mode) {

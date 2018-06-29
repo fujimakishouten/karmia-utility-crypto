@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility-crypto",
-    "version": "0.6.2",
+    "version": "0.6.3",
     "description": "Karmia crypto utility module.",
     "homepage": "https://github.com/fujimakishouten/karmia-utility-crypto",
     "license": "MIT",
@@ -35,6 +35,6 @@
         "tslint-eslint-rules": "^5.1.0"
     },
     "engines": {
-        "node": ">=4.0.0"
+        "node": ">=6.0.0"
     }
 }
