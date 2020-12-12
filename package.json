@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility-crypto",
-    "version": "0.6.4",
+    "version": "0.7.0",
     "description": "Karmia crypto utility module.",
     "homepage": "https://github.com/fujimakishouten/karmia-utility-crypto",
     "license": "MIT",
@@ -13,26 +13,29 @@
     "scripts": {
         "build": "tsc --lib es6 ./index.ts",
         "build:dev": "tsc",
-        "cobertura": "npm run build:dev && istanbul cover --report cobertura _mocha ./test",
-        "coverage": "npm run build:dev && istanbul cover --report html _mocha ./test",
+        "cobertura": "npm run build:dev && nyc --reporter cobertura mocha ./test",
+        "coverage": "npm run build:dev && nyc --reporter html mocha ./test",
+        "lint": "eslint ./index.ts",
         "postinstall": "npm run build",
-        "test": "npm run build:dev && _mocha ./test"
+        "test": "npm run build:dev && mocha ./test"
     },
     "dependencies": {
         "@types/js-sha512": "^0.7.0",
-        "@types/node": "^9.6.2",
-        "js-sha512": "^0.7.1",
-        "karmia-utility-random": "^0.6.0",
-        "typescript": "^2.8.1"
+        "@types/node": "^14.14.12",
+        "js-sha512": "^0.8.0",
+        "karmia-utility-random": "^0.7.0",
+        "typescript": "^4.1.3"
     },
     "devDependencies": {
         "@types/expect.js": "^0.3.29",
-        "@types/mocha": "^5.0.0",
+        "@types/mocha": "^8.2.0",
+        "@types/node": "^14.14.12",
+        "@typescript-eslint/eslint-plugin": "^4.9.1",
+        "@typescript-eslint/parser": "^4.9.1",
+        "eslint": "^7.15.0",
         "expect.js": "^0.3.1",
-        "istanbul": "^1.1.0-alpha.1",
-        "mocha": "^5.0.5",
-        "tslint": "^5.9.1",
-        "tslint-eslint-rules": "^5.1.0"
+        "mocha": "^8.2.1",
+        "nyc": "^15.1.0"
     },
     "engines": {
         "node": ">=6.0.0"
